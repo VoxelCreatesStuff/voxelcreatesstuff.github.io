@@ -2,4 +2,6 @@ body {
   margin: 0px 20px;
   background: pink;
   text-align: center;
+
+  h1 {font-size: calc(16px + 2vw);}
 }
