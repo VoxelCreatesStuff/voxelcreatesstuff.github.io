@@ -2,4 +2,9 @@ body {
   margin: 0px 20px;
   background: rgb(147, 223, 223);
   text-align: left;
+
+  h1 {font-size: calc(26px + 1vw);}
+  h2 {font-size: calc(20px + 0.6vw);}
+  h3 {font-size: calc(16px + 0.6vw);}
+  p {font-size: calc(12px + 0.6vw);}
 }
