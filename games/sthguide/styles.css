@@ -3,8 +3,8 @@ body {
   background: #93dfdf;
   text-align: left;
 
-  h1 {font-size: calc(26px + 1vw);}
-  h2 {font-size: calc(20px + 0.6vw);}
-  h3 {font-size: calc(16px + 0.6vw);}
-  p {font-size: calc(12px + 0.6vw);}
+  h1 {font-size: cclamp(1.98rem, 1.2vw, 2.46rem);}
+  h2 {font-size: clamp(1.64rem, 1.2vw, 2.12rem);}
+  h3 {font-size: clamp(1.32rem, 1.2vw, 1.8rem);}
+  p {font-size: clamp(1rem, 1.2vw, 1.48rem);}
 }
