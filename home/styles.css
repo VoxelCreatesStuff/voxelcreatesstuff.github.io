@@ -1,10 +1,10 @@
 body {
   margin: 0px 20px;
-  background: #db88c0;
+  background: #ebcce2;
   text-align: center;
 
   h1 {font-size: calc(26px + 1vw);}
   h2 {font-size: calc(20px + 0.6vw);}
   h3 {font-size: calc(16px + 0.6vw);}
-  p {font-size: calc(12px + 0.6vw);}
+  p {font-size: clamp(1rem, 3vw, 1.4rem);}
 }
