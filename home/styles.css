@@ -6,5 +6,5 @@ body {
   h1 {font-size: calc(26px + 1vw);}
   h2 {font-size: calc(20px + 0.6vw);}
   h3 {font-size: calc(16px + 0.6vw);}
-  p {font-size: clamp(1rem, 3vw, 1.4rem);}
+  p {font-size: clamp(1rem, 2vw, 1.4rem);}
 }
