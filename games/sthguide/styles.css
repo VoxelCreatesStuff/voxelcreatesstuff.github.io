@@ -8,6 +8,31 @@ body {
   h3 {font-size: clamp(1.32rem, 1.2vw, 1.8rem);}
   p {font-size: clamp(1rem, 1.2vw, 1.48rem);}
 
+  .buttonmenu1 {
+    border-radius: 8px;
+    font-size: clamp(1.98rem, 1.2vw, 2.46rem);
+    padding: 4px 8px;
+    margin: 2px;
+    color: black;
+    background-color: #13437d;
+    transition-duration: 0.35s;
+  }
+  .buttonmenu1:hover {
+    border-radius: 12px;
+    font-size: clamp(1.98rem, 1.2vw, 2.46rem);
+    padding: 8px 8px;
+    background-color: #3178cf;
+  }
+  .buttonmenu2 {
+    border-radius: 8px;
+    font-size: clamp(1.98rem, 1.2vw, 2.46rem);
+    padding: 1px 8px;
+    margin: 2px;
+    color: black;
+    background-color: #13437d;
+    opacity: 0.6;
+}
+
   /* Dotted border */
   hr.dotted {
   border-top: 7px dotted #13437d;
