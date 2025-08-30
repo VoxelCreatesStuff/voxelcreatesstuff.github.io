@@ -33,20 +33,35 @@ body {
     opacity: 0.6;
 }
 
-  /* Dotted border */
+  /* Dotted Devider */
   hr.dotted {
   border-top: 7px dotted #13437d;
   }
 
-  hr.solid {
+  /* Devides multiple paragraphs */
+  hr.solidDevider {
+  border-top: 2px solid #628cbe;
+  }
+
+  /* Sits between the content of the page and any links at the botton */
+  hr.solidEndOfPage {
   border-top: 2px solid #13437d;
   }
 
-  /* Box  around stuff */
-  div {
+  /* Box used to highlight something */
+  div.boxHighlight {
   background-color: #76A3DB;
   border: 5px solid #13437d;
   padding: 15px;
   margin: calc(1vw);
   }
+
+  /* Box around random stuff */
+  div.boxBackground {
+    background-color: #76A3DB;
+    border: 5px solid #628cbe;
+    padding: 0.8vw 1.2vw;
+    margin: 1vw 4vw;
+    text-align: left;
+  }  
 }

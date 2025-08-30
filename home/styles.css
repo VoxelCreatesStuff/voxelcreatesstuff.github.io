@@ -3,10 +3,10 @@ body {
   background: #EBB9DC;
   text-align: center;
 
-  h1 {font-size: clamp(1.98rem, 1.2vw, 2.46rem);}
-  h2 {font-size: clamp(1.64rem, 1.2vw, 2.12rem);}
-  h3 {font-size: clamp(1.32rem, 1.2vw, 1.8rem);}
-  p {font-size: clamp(1rem, 1.2vw, 1.48rem);}
+  h1 {font-size: clamp(1.90rem, 1.2vw, 2.30rem);}
+  h2 {font-size: clamp(1.60rem, 1.2vw, 2.00rem);}
+  h3 {font-size: clamp(1.30rem, 1.2vw, 1.70rem);}
+  p  {font-size: clamp(1rem, 1.2vw, 1.40rem);}
 
   .buttonmenu1 {
     border-radius: 8px;
@@ -55,7 +55,7 @@ body {
     border-top: 2px solid #754569;
   }
 
-  /* Box  around stuff */
+  /* Box around random stuff */
   div {
     background-color: #EBB9DC;
     border: 5px solid #754569;

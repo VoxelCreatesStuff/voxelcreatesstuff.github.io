@@ -51,7 +51,22 @@ body {
   border-top: 7px dotted #754569;
   }
 
-  hr.solid {
+  /* Devides multiple paragraphs */
+  hr.solidDevider {
+  border-top: 2px solid #d8a3c7;
+  }
+
+  /* Sits between the content of the page and any links at the botton */
+  hr.solidEndOfPage {
   border-top: 2px solid #754569;
+  }
+
+  /* Box around random stuff */
+  div.boxBackground {
+    background-color: #EBB9DC;
+    border: 5px solid #d8a3c7;
+    padding: 0.8vw 1.2vw;
+    margin: 1vw 4vw;
+    text-align: left;
   }
 }
