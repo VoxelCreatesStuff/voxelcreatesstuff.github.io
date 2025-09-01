@@ -1,4 +1,3 @@
 # Voxel
-Hi, im Voxel <3
-
+Visit the Website here:
 https://voxelcreatesstuff.github.io/home/
