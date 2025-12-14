@@ -1,0 +1,72 @@
+body {
+  margin: 0px 20px;
+  background: #EBB9DC;
+  text-align: left;
+
+  h1 {font-size: cclamp(1.98rem, 1.2vw, 2.46rem);}
+  h2 {font-size: clamp(1.64rem, 1.2vw, 2.12rem);}
+  h3 {font-size: clamp(1.32rem, 1.2vw, 1.8rem);}
+  p {font-size: clamp(1rem, 1.2vw, 1.48rem);}
+
+  .buttonmenu1 {
+    border-radius: 8px;
+    font-size: clamp(1.98rem, 1.2vw, 2.46rem);
+    padding: 4px 8px;
+    margin: 2px;
+    color: black;
+    background-color: #754569;
+    transition-duration: 0.35s;
+  }
+  .buttonmenu1:hover {
+    border-radius: 12px;
+    font-size: clamp(1.98rem, 1.2vw, 2.46rem);
+    padding: 8px 8px;
+    background-color: #ce76b8;
+  }
+  .buttonmenu2 {
+    border-radius: 8px;
+    font-size: clamp(1.98rem, 1.2vw, 2.46rem);
+    padding: 1px 8px;
+    margin: 2px;
+    color: black;
+    background-color: #754569;
+    opacity: 0.6;
+  }
+  .buttontext1 {
+    border-radius: 8px;
+    font-size: clamp(1rem, 1.2vw, 1.48rem);
+    padding: 4px 8px;
+    margin: 2px;
+    color: black;
+    background-color: #ce76b8;
+    transition-duration: 0.35s;
+  }
+  .buttontext1:hover {
+    border-radius: 12px;
+    padding: 8px 8px;
+  }
+
+  /* Dotted border */
+  hr.dotted {
+  border-top: 7px dotted #754569;
+  }
+
+  /* Devides multiple paragraphs */
+  hr.solidDevider {
+  border-top: 2px solid #d8a3c7;
+  }
+
+  /* Sits between the content of the page and any links at the botton */
+  hr.solidEndOfPage {
+  border-top: 2px solid #754569;
+  }
+
+  /* Box around random stuff */
+  div.boxBackground {
+    background-color: #EBB9DC;
+    border: 5px solid #d8a3c7;
+    padding: 0.8vw 1.2vw;
+    margin: 1vw 4vw;
+    text-align: left;
+  }
+}
