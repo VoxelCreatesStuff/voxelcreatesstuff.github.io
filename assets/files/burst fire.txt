@@ -1,0 +1,143 @@
+-- Shooting
+SWEP.Primary.CustomAfterBurstDelay  = 0.6
+SWEP.Primary.CustomDuringBurstDelay = 0.08
+	-- This probably wouldnt mix well with SWEP.Primary.NumShots, so DONT
+SWEP.Primary.CustomBurstShots       = 3
+
+
+
+
+-- Overrides of base functions and custom code go here
+
+-- Burst code (still Needs to be cleaned up!)
+local function ClearNetVars(self)
+	self:SetIronsights(false)
+	self:SetBurstShotsFired(0)
+	self:SetBurstShotEndTime(0.0)
+	self:SetSingleShotEndTime(0.0)
+	self:SetIsBursting(false)
+	self:SetPrimarySound(false)
+end
+
+function SWEP:OnDrop()
+	ClearNetVars(self)
+end
+
+function SWEP:Deploy()
+	ClearNetVars(self)
+	return true
+end
+
+function SWEP:SetupDataTables()
+	-- The number of shots already fired during the current burst. "0" no shots have been shot yet.
+	self:NetworkVar("Int",   0, "BurstShotsFired")
+	-- True if is bursting right now
+	self:NetworkVar("Bool", false, "IsBursting");
+	-- The time that the current shot being fired in the burst will be finished.
+	self:NetworkVar("Float", 1, "BurstShotEndTime")
+	--Single Shot End Time
+	self:NetworkVar("Float", 1, "SingleShotEndTime")
+	--Last Info about world sound from primary
+	self:NetworkVar("Bool", false, "PrimarySound")
+	self.BaseClass.SetupDataTables(self)
+end
+
+function SWEP:GetRandomViewpunchAngle()
+	local recoil = self.Primary.Recoil
+	local pitch  = math.Rand(-0.2, -0.1)
+	local yaw    = math.Rand(-0.1,  0.1)
+	local roll   = 0 --math.Rand(-0.3,  0.3) -- Roll is fun.
+
+	return Angle(pitch * recoil, yaw * recoil, roll)
+end
+
+function SWEP:Reload()
+   if ( self:Clip1() == self.Primary.ClipSize or self.Owner:GetAmmoCount( self.Primary.Ammo ) <= 0 ) then 
+      return end
+   self.Weapon:DefaultReload( ACT_VM_RELOAD )
+   self:SetIsBursting(false)
+   self:SetBurstShotsFired(0)
+   self:SetIronsights( false )
+   self:SetZoom( false )
+   self.Weapon:EmitSound("weapons/an94/an94reload.wav")
+end
+
+function SWEP:Think()
+	self.BaseClass.Think(self)
+	if self:GetIsBursting() then
+		if self:GetBurstShotsFired() < (self.Primary.CustomBurstShots or 3) then
+			if self:GetSingleShotEndTime() <= CurTime() then
+				self:FireShot(self:GetPrimarySound())
+				self:SetSingleShotEndTime(CurTime() + self.Primary.CustomDuringBurstDelay)
+				self:SetBurstShotsFired(self:GetBurstShotsFired() + 1)
+			end
+		end
+
+		if self:GetBurstShotsFired() >= (self.Primary.CustomBurstShots or 3) then
+			self:SetBurstShotsFired(0)
+			self:SetIsBursting(false)
+			self:SetBurstShotEndTime(CurTime() + self.Primary.CustomAfterBurstDelay)
+		end
+	end
+end
+
+function SWEP:PrimaryAttack(worldsnd)
+	if self:Clip1() <= 0 then
+		self:Reload()
+	elseif self:GetBurstShotEndTime() <= CurTime() && self:GetIsBursting() == false then
+		self:SetIsBursting(true)
+		self:SetPrimarySound(worldsnd)
+	end
+end
+
+-- This is basically the default TTT SWEP:PrimaryAttack() function.
+function SWEP:FireShot(worldsnd)
+	
+	if not self:CanPrimaryAttack() then return end
+
+	-- No idea where "worldsnd" is retrieved from...
+	if not worldsnd then
+		self:EmitSound(self.Primary.Sound, self.Primary.SoundLevel)
+	elseif SERVER then
+		sound.Play(self.Primary.Sound, self:GetPos(), self.Primary.SoundLevel)
+	end
+
+	self:ShootBullet(self.Primary.Damage, self.Primary.Recoil, self.Primary.NumShots, self:GetPrimaryCone())
+	self:TakePrimaryAmmo(1)
+
+	local owner = self.Owner
+	if not IsValid(owner) or owner:IsNPC() or (not owner.ViewPunch) then return end
+
+	owner:ViewPunch(self:GetRandomViewpunchAngle())
+	
+end
+
+function SWEP:SecondaryAttack()
+    if not self.IronSightsPos then return end
+    if self:GetNextSecondaryFire() > CurTime() then return end
+
+    local bIronsights = not self:GetIronsights()
+
+    self:SetIronsights( bIronsights )
+
+    if SERVER then
+        self:SetZoom(bIronsights)
+     else
+        self:EmitSound(self.Secondary.Sound)
+    end
+
+    self:SetNextSecondaryFire( CurTime() + 0.3)
+end
+
+function SWEP:Holster()
+    self:SetIronsights(false)
+    self:SetZoom( false )
+    return true
+end
+
+function SWEP:PreDrop()
+    self:SetIronsights(false)
+    self:SetZoom( false )
+    return self.BaseClass.PreDrop(self)
+end
+-- Bust code end
