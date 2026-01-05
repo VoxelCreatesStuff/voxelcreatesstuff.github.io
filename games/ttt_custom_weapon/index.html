@@ -28,14 +28,14 @@
       - ttt_weaponname (all lower case, _ instead of spaces)<br/>
       - - lua (This is where the code goes)<br/>
       - - - weapons (Specifying that youre making a weapon)<br/>
-      - - - - ttt_weaponname.lua (Is also sometimes called shared.lua)<br/>
+      - - - - ttt_weaponname.lua (Code goes here)<br/>
       - - materials (This is where textures go)<br/>
       - - - vgui<br/>
       - - - - ttt<br/>
       - - - - - icon_uniqueidentifier_weaponname.vtf (The cause of death / shop icon. Has to be a unique name.<br/>
       If two weapos happen to share an icon name, the server just uses the one it happens to download first for both.<br/>
       This warning can also be found inside the example lua.)<br/>
-      - - - - - icon_uniqueidentifier_weaponname.vmt (LOOK UP WHT THIS DOES!!!)</p>
+      - - - - - icon_uniqueidentifier_weaponname.vmt (This tells the source engine how it should handle the .vtf to avoid weird behavoir.)</p>
 
     <h2>Lua File</h2>
       <p>A weapon is usually contained to a single lua file.</p>
@@ -49,25 +49,25 @@
       • <a href="../../assets/files/burst fire.txt">Burst Fire</a> (Works, but still needs to be cleaned up)</p>
 
     <h2>Creating a Shop Icon</h2>
-      <p>Shop icons are often just a picture of the weapon in front of a colored background.<br/>
+      <p>Shop icons (always 64x64) are often just a picture of the weapon in front of a colored background.<br/>
         The background files are available on ttt.com, but the .psd file breaks if you dont use photoshop.<br/>
         Thats why we decided to just host the background images here:<br/>
-        <img src="../../assets/images/ttt_background_template_512_blue.png" alt="Blue background for ttt weapons displayed in the shop" width="64" height="64"/><img src="../../assets/images/ttt_background_template_512_red.png" alt="Red background for ttt weapons displayed in the shop" width="64" height="64"/><img src="../../assets/images/ttt_background_template_512_yellow.png" alt="Yellow background for ttt weapons displayed in the shop" width="64" height="64"/><img src="../../assets/images/ttt_background_template_512_green.png" alt="Green background for ttt weapons displayed in the shop" width="64" height="64"/><br/>
-        • Blue is used for every weapon and item.<br/>
-        • Red is only used for passive effects that never touch your inventory.<br/>
-        • We are unsure what Yellow and Green stand for???</p>
+        <img src="../../assets/images/ttt_icon_template_blue.png" alt="Blue background for ttt weapons displayed in the shop" width="64" height="64"/><img src="../../assets/images/ttt_icon_template_red.png" alt="Red background for ttt weapons displayed in the shop" width="64" height="64"/><br/>
+        • The blue background is for items that touch your inventory, even if they only have one charge<br/>
+        or get auto consumed or stuff like that.<br/>
+        • The red background is for effects and abilities that never touch your inventory.</p>
+        <p>While ttt.com provides other colors, only blue and red are ever used, so wed advise you stick with those.</p>
     
     <h2>Converting the finished shop icon</h2>
-      <p>We are going to convert our shop icon into a .vtf file to ensure that gmod can scale the image down when necessary.<br/>
-        Just download <a target="_blank" href="https://web.archive.org/web/20191223154323/http://nemesis.thewavelength.net/files/files/vtfedit133.exe">VTFEdit</a> from the archived nemesis website (yes, this is also where the valve dev wiki will lead you)<br/>
+      <p>We are going to convert our shop icon into a .vtf file to ensure legacy support and eliminate wierd edgecases.<br/>
+        (Even tho using a png file would technically allow the addon to be a few kb smaller.)<br/>
+        Just download <a target="_blank" href="https://web.archive.org/web/20191223154323/http://nemesis.thewavelength.net/files/files/vtfedit133.exe">VTFEdit</a> from the archived nemesis website (yes, this is also where the valve dev wiki will lead you),<br/>
         and import your png.</p>
       <p>The <a target="_blank" href="https://docs.ttt2.neoxult.de/developers/content-creation/icon-and-design-guideline/">ttt2 doc</a> reccomends these settings:<br/>
-        <img src="../../assets/images/TShop Icon Settings.png" alt="add alt text!!!" width="540" height="411"/><br/>
-        • Were using DTX5 because it supports transparency while still being a smaller format.<br/>
-        • Cubic Resize Filter and Mipmap Filter seem to be the setting base weapons use?<br/>
-        • Our image size is 512px, so it will also be our maximum size.<br/>
-        • Sharpen Medium also seems to be what other base weapons use?</p>
-    
+        <img src="../../assets/images/vtf_settings_shop_icon.png" alt="add alt text!!!" width="540" height="411"/><br/>
+        
+    <hr class="solidEndOfPage">
+
     <h3>Links:</h3>
       <p><img src="../../assets/icons/bsky logo.png" alt="Bluesky Icon" width="10" height="10"/> <a target="_blank" href="https://bsky.app/profile/voxel123.bsky.social">My Bluesky</a> | 
         <img src="../../assets/icons/twitch logo.svg" alt="Twitch Icon" width="10" height="10"/> <a target="_blank" href="https://www.twitch.tv/voxel_does_streams">My Twitch</a> | 
