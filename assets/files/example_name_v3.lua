@@ -97,8 +97,8 @@ if CLIENT then
 end
 	-- Players can only carry a limited amount of weapons per type
 	-- TTT behaviour. Should line up with SWEP.Slot
-	-- Can be:     WEAPON_...   MELEE, PISTOL, HEAVY, NADE, CARRY, EQUIP1, EQUIP2 or ROLE
-	-- Matching SWEP.Slot values: 0      1       2     3      4      6       7        8
+	-- Can be:        WEAPON_... MELEE, PISTOL, HEAVY, NADE, CARRY, WEAPON_EQUIP1, WEAPON_EQUIP2 or ROLE
+	-- Matching SWEP.Slot values:  0      1       2     3      4          6              7           8
 SWEP.Kind          = WEAPON_HEAVY
 SWEP.AllowDrop     = true
 -- TTT Roles
