@@ -1,0 +1,60 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voxel's Page</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <p style="text-align: right">
+    <a href="../home/" button class="buttonmenu1">HOME</a>
+    <button class="buttonmenu2">GAMES</button>
+    <a href="../misc/" button class="buttonmenu1">MISC</a>
+    </p>
+
+    <h1>How to switch scenes in unity</h1>
+
+    <div class="boxBackground">
+        <p>First, Scenes that you want to use need to be added to the scene manager.<br/>
+            Its under: File → Build Profiles → Open Scene List</p>
+    </div>
+
+    <div class="boxBackground">
+        <h3>Option 1:</h3>
+            <p>public void onButtonPressed()<br/>
+                {<br/>
+                SceneManager.LoadScene(“Level1”);<br/>
+                }</p>
+
+            <p>This works, but you have to rely on the name of the scene. If you ever rename the scene to something else,<br/>
+                it will stills earch for Level1.<br/>
+                If you are doing a bigger project, try:</p>
+    </div>
+
+    <div class="boxBackground">
+        <h3>Option 2:</h3>
+            <p>First, open your scenes .meta file, and grad the GUID. This is a unique identifier that never changes (unless you delete the scene).</p>
+
+            <p>private string guidLevel1 = “theGUIDYouCopiedEarlier”;</p>
+
+            <p>public void onButtonPressed()<br/>
+                {<br/>
+                private string scenepath = AssetDatabase.GUIDToAssetPath(guidLevel1);<br/>
+                SceneManager.LoadScene(scenepath);<br/>
+                }</p>
+
+            <p>You can obviously change the structure further to fit your project.<br/>
+                Most importantly, you can now move the scene to a different folder, or even rename it, and LoadScene will still find it.</p>
+    </div>
+
+    
+
+
+        <hr class="solidEndOfPage">
+
+    <h3>Links:</h3>
+      <p><img src="../assets/icons/bsky logo.png" alt="Bluesky Icon" width="10" height="10"/> <a target="_blank" href="https://bsky.app/profile/voxel123.bsky.social">My Bluesky</a> | 
+        <img src="../assets/icons/twitch logo.svg" alt="Twitch Icon" width="10" height="10"/> <a target="_blank" href="https://www.twitch.tv/voxel_does_streams">My Twitch</a> | 
+        <img src="../assets/icons/bat logo.svg" alt="Bat Icon" width="10" height="10"/> <a target="_blank" href="https://bat.kittycat.homes/">My GFs page &hearts;</a></p>
+  </body>
+</html>
