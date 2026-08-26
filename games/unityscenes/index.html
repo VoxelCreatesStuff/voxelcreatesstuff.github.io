@@ -15,7 +15,7 @@
     <h1>How to switch scenes in unity</h1>
 
     <div class="boxBackground">
-        <p>First, Scenes that you want to use need to be added to the scene manager.<br/>
+        <p>First, Scenes that you want to use need to be added to the scene list.<br/>
             Its under: File → Build Profiles → Open Scene List</p>
     </div>
 
@@ -26,16 +26,24 @@
                 SceneManager.LoadScene(“Level1”);<br/>
                 }</p>
 
-            <p>This works, but you have to rely on the name of the scene. If you ever rename the scene to something else,<br/>
-                it will stills earch for Level1.<br/>
-                If you are doing a bigger project, try:</p>
+            <p>This relies on the name of the scene file, and works perfectly fine for small projects.</p>
     </div>
 
     <div class="boxBackground">
         <h3>Option 2:</h3>
+            <p>public void onButtonPressed()<br/>
+                {<br/>
+                SceneManager.LoadScene(1);<br/>
+                }</p>
+
+            <p>This relies on the index the scene has in the scene list, and works perfectly fine for small projects.</p>
+    </div>
+
+    <div class="boxBackground">
+        <h3>Option 3:</h3>
             <p>First, open your scenes .meta file, and grad the GUID. This is a unique identifier that never changes (unless you delete the scene).</p>
 
-            <p>private string guidLevel1 = “theGUIDYouCopiedEarlier”;</p>
+            <p>private string guidLevel1 = “guidOfyourScene”;</p>
 
             <p>public void onButtonPressed()<br/>
                 {<br/>
@@ -43,8 +51,9 @@
                 SceneManager.LoadScene(scenepath);<br/>
                 }</p>
 
-            <p>You can obviously change the structure further to fit your project.<br/>
-                Most importantly, you can now move the scene to a different folder, or even rename it, and LoadScene will still find it.</p>
+            <p>This solution is usefull for big projects, or if you are a person that renames or rearrages stuff often.<br/>
+                Because the GUID never changes, this code will always open the correct scene.<br/>
+                Moving it to a different folder, raneming it, and changing its index in teh scene list all have no effect on this method.</p>
     </div>
 
     
