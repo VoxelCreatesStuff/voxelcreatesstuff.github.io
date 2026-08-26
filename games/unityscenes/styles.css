@@ -3,7 +3,7 @@ body {
   background: #EBB9DC;
   text-align: center;
 
-  h1 {font-size: cclamp(1.98rem, 1.2vw, 2.46rem);}
+  h1 {font-size: clamp(1.98rem, 1.2vw, 2.46rem);}
   h2 {font-size: clamp(1.64rem, 1.2vw, 2.12rem);}
   h3 {font-size: clamp(1.32rem, 1.2vw, 1.8rem);}
   p {font-size: clamp(1rem, 1.2vw, 1.48rem);}
@@ -68,5 +68,9 @@ body {
     padding: 0.8vw 1.2vw;
     margin: 1vw 4vw;
     text-align: left;
+  }
+
+  .topbar {
+    padding: 0.1vw;
   }
 }

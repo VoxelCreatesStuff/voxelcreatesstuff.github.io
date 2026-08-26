@@ -38,11 +38,15 @@ body {
   border-top: 2px solid #635150;
   }
 
-  /* Box  around stuff */
+  /* Box around random stuff */
   div {
-  background-color: #ceb9b8;
-  border: 5px solid #635150;
-  padding: 5px;
-  margin: calc(1.6vw);
+    background-color: #EBB9DC;
+    border: 5px solid #754569;
+    padding: 5px;
+    margin: calc(1.6vw);
+  }
+
+  .topbar {
+    padding: 0.1vw;
   }
 }

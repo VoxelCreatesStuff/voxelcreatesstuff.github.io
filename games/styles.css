@@ -69,4 +69,8 @@ body {
     margin: 1vw 4vw;
     text-align: left;
   }
+
+  .topbar {
+    padding: 0.1vw;
+  }
 }

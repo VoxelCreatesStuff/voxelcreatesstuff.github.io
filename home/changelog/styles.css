@@ -41,4 +41,16 @@ body {
   hr.solid {
   border-top: 2px solid #754569;
   }
+
+  /* Box around random stuff */
+  div {
+    background-color: #EBB9DC;
+    border: 5px solid #754569;
+    padding: 5px;
+    margin: calc(1.6vw);
+  }
+
+  .topbar {
+    padding: 0.1vw;
+  }
 }
